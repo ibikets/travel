@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +17,12 @@ class AdminController extends Controller
     {
         //
 
-        return view('admin.index');
+        $users = User::paginate(10);
+
+        $clients = Client::paginate(5);
+
+
+        return view('admin.index', compact('users', 'clients'));
     }
 
     /**
