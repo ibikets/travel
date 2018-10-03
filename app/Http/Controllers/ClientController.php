@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Airline;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -27,7 +28,9 @@ class ClientController extends Controller
     {
         //
 
-        return view('admin.clients.create');
+        $airlines = Airline::pluck('name', 'id')->all();
+
+        return view('admin.clients.create', compact('airlines', 'ticket_types'));
     }
 
     /**

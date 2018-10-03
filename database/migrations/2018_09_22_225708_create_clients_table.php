@@ -19,13 +19,16 @@ class CreateClientsTable extends Migration
             $table->integer('status_id')->default(5);
             $table->integer('photo_id')->nullable();
             $table->integer('ticket_id');
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('othername');
+            $table->string('lastname');
             $table->string('email')->unique();
             $table->date('dob')->nullable();
+            $table->string('gender');
+            $table->string('mobile');
             $table->string('passport_no');
             $table->date('expiry_date')->nullable();
             $table->date('issue_date')->nullable();
-            $table->string('mobile');
             $table->timestamps();
         });
     }

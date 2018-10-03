@@ -13,4 +13,12 @@ class Ticket extends Model
     public function client(){
         return $this->belongsTo('App\Client');
     }
+
+    public function airline(){
+        return $this->belongsTo('App\Airline');
+    }
+
+
+
+
 }
