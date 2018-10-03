@@ -14,10 +14,10 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="{{route('admin.users.create')}}">Add Client</a>
+                    <a href="{{route('admin.clients.create')}}">Add Client</a>
                 </li>
                 <li>
-                    <a href="{{route('admin.users.index')}}">View All Clients</a>
+                    <a href="{{route('admin.clients.index')}}">View All Clients</a>
                 </li>
             </ul>
         </li>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create New Client
+    Add New Staff
 @stop
 
 @section('body')

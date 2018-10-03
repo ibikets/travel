@@ -62,7 +62,7 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                @if(count($clients)0)
+                                @if(count($clients)>0)
                                     @foreach($clients as $client)
                                         <tr>
                                             <td>{{$client->name}}</td>
