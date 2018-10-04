@@ -8,10 +8,10 @@ class Client extends Model
 {
     //
 
-    protected $fillable = ['role_id', 'status_id', 'photo_id', 'ticket_id', 'name', 'email', 'dob', 'passport_no', 'expiry_date', 'issue_date', 'mobile'];
+    protected $fillable = ['role_id', 'status_id', 'photo_id', 'ticket_id', 'firstname', 'othername', 'lastname', 'gender', 'email', 'dob', 'passport_no', 'expiry_date', 'issue_date', 'mobile'];
 
     public function ticket(){
-        return $this->belongsTo('App\Ticket');
+        return $this->belongsTo('App\Ticket','ticket_id','id');
     }
 
     public function photo(){

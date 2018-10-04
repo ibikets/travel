@@ -20,9 +20,9 @@ class CreateTicketsTable extends Migration
             $table->string('from');
             $table->string('to');
             $table->string('ticket_type');
-            $table->dateTime('purchase_date');
-            $table->dateTime('departure_date');
-            $table->dateTime('return_date');
+            $table->date('purchase_date');
+            $table->date('departure_date');
+            $table->date('return_date')->nullable();
             $table->integer('actual_cost');
             $table->integer('paid');
             $table->timestamps();

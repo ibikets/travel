@@ -18,9 +18,9 @@ class CreateClientsTable extends Migration
             $table->integer('role_id')->default(3);
             $table->integer('status_id')->default(5);
             $table->integer('photo_id')->nullable();
-            $table->integer('ticket_id');
+            $table->integer('ticket_id')->nullable();
             $table->string('firstname');
-            $table->string('othername');
+            $table->string('othername')->nullable();
             $table->string('lastname');
             $table->string('email')->unique();
             $table->date('dob')->nullable();

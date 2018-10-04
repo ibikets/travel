@@ -10,7 +10,10 @@
         <div class="block-header">
             <h1>Add Client</h1>
         </div>
-        <!-- Input -->
+
+
+
+    <!-- Input -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
@@ -34,38 +37,53 @@
                     {{--</div>--}}
                     <div class="body">
 
-                        {!! Form::open(['method' => 'POST', 'action' => 'ClientController@store']) !!}
+                        {!! Form::open(['method' => 'POST', 'action' => 'ClientController@store', 'files'=>true]) !!}
 
                         <h3>Bio Data</h3>
                         <div class="row clearfix">
-                            <div class="col-sm-8">
-                                <div class="form-group">
+                            <div class="col-sm-4">
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'First Name                                      Middle Name                                             Surname ']) !!}
+                                        {!! Form::text('firstname', null, ['class'=>'form-control', 'placeholder'=>'First Name*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="form-group">
+                                <div class="form-group form-float">
                                     <div class="form-line">
-                                        {!! Form::select('gender', [''=>'Select Gender', 'M' => 'Male', 'F' => 'Female'], ['class'=>'form-control show-tick']) !!}
+                                        {!! Form::text('othername', null, ['class'=>'form-control', 'placeholder'=>' Middle Name']) !!}
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {!! Form::text('lastname', null, ['class'=>'form-control', 'placeholder'=>'Surname*', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row clearfix">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <div class="form-line">
                                         {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <div class="input-group">
-                                    <span class="input-group-addon">DOB: </span>
+                                    <span class="input-group-addon">DOB* : </span>
                                     <div class="form-line">
-                                        {!! Form::date('dob', null, ['class'=>'form-control', 'placeholder'=>'Date Of Birth']) !!}
+                                        {!! Form::date('dob', null, ['class'=>'form-control', 'placeholder'=>'Date Of Birth', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        {!! Form::select('gender', [''=>'Select Gender', 'M' => 'Male', 'F' => 'Female'], null,  ['class'=>'form-control show-tick']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +93,7 @@
                                                 <i class="material-icons">phone</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Mobile']) !!}
+                                        {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Mobile*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -83,42 +101,42 @@
 
                         <h3>Passport Data</h3>
                         <div class="row clearfix">
+                            <div class="col-sm-2">
+                                <div class="input-group">
+
+                                    <div class="form-line">
+                                        {!! Form::text('passport_no', null, ['class'=>'form-control', 'placeholder'=>'Passport Number*', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-sm-3">
                                 <div class="input-group">
-
+                                    <span class="input-group-addon">Expiry Date* : </span>
                                     <div class="form-line">
-                                        {!! Form::text('passport_no', null, ['class'=>'form-control', 'placeholder'=>'Passport Number']) !!}
+                                        {!! Form::date('expiry_date', null, ['class'=>'form-control', 'placeholder'=>'Expiry Date', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Expiry Date: </span>
+                                    <span class="input-group-addon">Issue Date*:  </span>
                                     <div class="form-line">
-                                        {!! Form::date('expiry_date', null, ['class'=>'form-control', 'placeholder'=>'Expiry Date']) !!}
+                                        {!! Form::date('issue_date', null, ['class'=>'form-control', 'placeholder'=>'Issue Date', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Issue Date:  </span>
-                                    <div class="form-line">
-                                        {!! Form::date('issue_date', null, ['class'=>'form-control', 'placeholder'=>'Issue Date']) !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row clearfix">
                             <div class="col-sm-3">
                                 <div class="input-group">
                                     <span class="input-group-addon">Upload Passport:  </span>
                                     <div class="form-line">
-                                        {!! Form::file('path', null, ['class'=>'form-control', 'placeholder'=>'Mobile']) !!}
+                                        {!! Form::file('photo_id', null, ['class'=>'form-control', 'placeholder'=>'Mobile']) !!}
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row clearfix">
+
                         </div>
 
                         <h3>Ticket Information</h3>
@@ -127,7 +145,7 @@
                                 <div class="col-sm-3">
                                     <div class="input-group form-float">
                                         <span class="input-group-addon">Ariline *: </span>
-                                        {!! Form::select('airline', [''=>'Select Airline'] + $airlines, null, ['class'=>'form-control show-tick', 'required']) !!}
+                                        {!! Form::select('airline_id', [''=>'Select Airline'] + $airlines, null, ['class'=>'form-control show-tick', 'required']) !!}
 
                                     </div>
                                 </div>
@@ -155,7 +173,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Purchase Date* : </span>
                                         <div class="form-line">
-                                            {!! Form::date('purchase_date', \Carbon\Carbon::now(), ['class'=>'form-control', 'placeholder'=>'Purchase Date*', 'required']) !!}
+                                            {!! Form::date('purchase_date', \Carbon\Carbon::now(), ['class'=>'form-control datetime', 'placeholder'=>'Purchase Date*', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +181,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Departure Date*:  </span>
                                         <div class="form-line">
-                                            {!! Form::date('departure_date', null, ['class'=>'form-control', 'placeholder'=>'Departure Date*', 'required']) !!}
+                                            {!! Form::date('departure_date', null, ['class'=>'form-control datetime', 'placeholder'=>'Departure Date*', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +189,7 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">Return Date:  </span>
                                         <div class="form-line">
-                                            {!! Form::date('return_date', null, ['class'=>'form-control', 'placeholder'=>'Return Date']) !!}
+                                            {!! Form::date('return_date', null, ['class'=>'form-control datetime', 'placeholder'=>'Return Date']) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +217,7 @@
                             </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::submit('Add Client', ['class'=>'btn btn-primary']) !!}
                         </div>
 
                         {!! Form::close() !!}
