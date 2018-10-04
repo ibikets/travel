@@ -66,14 +66,14 @@
                                 @if(count($clients)>0)
                                     @foreach($clients as $client)
                                         <tr>
-                                            <td><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</td>
+                                            <td><a href="{{route('admin.clients.edit', $client->id)}}"><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</a></td>
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
                                             <td>{{$client->dob}}</td>
-                                            <td>{{$client->departure_date}}</td>
+                                            <td>{{$client->ticket->departure_date}}</td>
                                             <td>{{$client->ticket->return_date}}</td>
-                                            <td>{{$client->actual_cost}}</td>
-                                            <td>{{$client->paid}}</td>
+                                            <td>{{$client->ticket->actual_cost}}</td>
+                                            <td>{{$client->ticket->paid}}</td>
 
                                         </tr>
                                     @endforeach
