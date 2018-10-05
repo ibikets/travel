@@ -93,6 +93,8 @@ class ClientController extends Controller
 
         $ticket = Ticket::create($ticket);
 
+        Client::findOrFail($input['client_id'])->update(['ticket_id'=>$ticket->id]);
+
 
         Session::flash('msg', $client->firstname . $client->othername . $client->lastname . ' was added to the Client List with Ticket # ' . $ticket->id );
 

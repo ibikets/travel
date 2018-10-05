@@ -70,8 +70,8 @@
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
                                             <td>{{$client->dob}}</td>
-                                            <td>{{$client->departure_date}}</td>
-                                            <td>{{$client->ticket->return_date}}</td>
+                                            <td>{{$client->ticket->departure_date ? $client->ticket->departure_date : "Not Available"}}</td>
+                                            <td>{{$client->return_date}}</td>
                                             <td>{{$client->actual_cost}}</td>
                                             <td>{{$client->paid}}</td>
 
