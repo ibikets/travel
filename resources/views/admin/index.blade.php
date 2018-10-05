@@ -70,11 +70,14 @@
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
                                             <td>{{$client->dob}}</td>
+                                            <td>{{$client->ticket->departure_date ? $client->ticket->departure_date : "Not Available"}}</td>
+                                            <td>{{$client->return_date}}</td>
+                                            <td>{{$client->actual_cost}}</td>
+                                            <td>{{$client->paid}}</td>
                                             <td>{{$client->ticket->departure_date}}</td>
                                             <td>{{$client->ticket->return_date}}</td>
                                             <td>{{$client->ticket->actual_cost}}</td>
                                             <td>{{$client->ticket->paid}}</td>
-
                                         </tr>
                                     @endforeach
                                 @else
