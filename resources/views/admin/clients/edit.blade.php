@@ -8,7 +8,7 @@
 
     <div class="container-fluid">
         <div class="block-header">
-            <h1>Add Client</h1>
+            <h1>Edit Client</h1>
         </div>
 
 
@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="body">
 
-                        {!! Form::open(['method' => 'POST', 'action' => 'ClientController@store', 'files'=>true]) !!}
+                        {!! Form::model($client, ['method' => 'PATCH', 'action' => ['ClientController@store', $client->id], 'files'=>true]) !!}
 
                         <h3>Bio Data</h3>
                         <div class="row clearfix">
@@ -127,35 +127,35 @@
                             <div class="col-sm-3">
                                 <div class="input-group form-float">
                                     <span class="input-group-addon">Ariline *: </span>
-                                    {!! Form::select('airline_id', [''=>'Select Airline'] + $airlines, null, ['class'=>'form-control show-tick', 'required']) !!}
+                                    {!! Form::select('airline_id', [''=>'Select Airline'] + $airlines, $client->ticket->airline_id, ['class'=>'form-control show-tick', 'required']) !!}
 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="input-group">
                                     <div class="form-line">
-                                        {!! Form::text('from', null, ['class'=>'form-control', 'placeholder'=>'From*', 'required']) !!}
+                                        {!! Form::text('from', $client->ticket->from, ['class'=>'form-control', 'placeholder'=>'From*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="input-group">
                                     <div class="form-line">
-                                        {!! Form::text('to', null, ['class'=>'form-control', 'placeholder'=>'To*', 'required']) !!}
+                                        {!! Form::text('to', $client->ticket->to, ['class'=>'form-control', 'placeholder'=>'To*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="input-group form-float">
                                     <span class="input-group-addon">Trip Type* : </span>
-                                    {!! Form::select('ticket_type', [''=>'Select Ticket Type', 'return'=>'Return', 'one-way'=>'One Way' ], null, ['class'=>'form-control show-tick', 'required']) !!}
+                                    {!! Form::select('ticket_type', [''=>'Select Ticket Type', 'return'=>'Return', 'one-way'=>'One Way' ], $client->ticket->ticket_type, ['class'=>'form-control show-tick', 'required']) !!}
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Purchase Date* : </span>
                                     <div class="form-line">
-                                        {!! Form::date('purchase_date', \Carbon\Carbon::now(), ['class'=>'form-control datetime', 'placeholder'=>'Purchase Date*', 'required']) !!}
+                                        {!! Form::date('purchase_date', $client->ticket->purchase_date, ['class'=>'form-control datetime', 'placeholder'=>'Purchase Date*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon">Departure Date*:  </span>
                                     <div class="form-line">
-                                        {!! Form::date('departure_date', null, ['class'=>'form-control datetime', 'placeholder'=>'Departure Date*', 'required']) !!}
+                                        {!! Form::date('departure_date', $client->ticket->departure_date, ['class'=>'form-control datetime', 'placeholder'=>'Departure Date*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon">Return Date:  </span>
                                     <div class="form-line">
-                                        {!! Form::date('return_date', null, ['class'=>'form-control datetime', 'placeholder'=>'Return Date']) !!}
+                                        {!! Form::date('return_date', $client->ticket->return_date, ['class'=>'form-control datetime', 'placeholder'=>'Return Date']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                                                 <i class="material-icons">money</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('actual_cost', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Ticket Cost*', 'required']) !!}
+                                        {!! Form::number('actual_cost', $client->ticket->actual_cost, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Ticket Cost*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +191,7 @@
                                                 <i class="material-icons">money</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('paid', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Amount Paid*', 'required']) !!}
+                                        {!! Form::number('paid', $client->ticket->paid, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Amount Paid*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>

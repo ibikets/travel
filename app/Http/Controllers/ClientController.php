@@ -124,6 +124,11 @@ class ClientController extends Controller
     public function edit($id)
     {
         //
+        $airlines = Airline::pluck('name', 'id')->all();
+        $client = Client::findOrFail($id);
+//        $ticket = Ticket::findOrFail($client->id);
+
+        return view('admin.clients.edit', compact('client','airlines'));
     }
 
     /**

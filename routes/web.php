@@ -34,6 +34,7 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('admin/clients', 'ClientController', ['names' =>[
         'index'=>'admin.clients.index',
         'create'=>'admin.clients.create',
+        'edit'=>'admin.clients.edit',
         'update'=>'admin.clients.update',
         'show'=>'admin.clients.show',
     ]]);
