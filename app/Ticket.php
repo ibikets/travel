@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
@@ -18,7 +19,11 @@ class Ticket extends Model
         return $this->belongsTo('App\Airline');
     }
 
-
-
-
+//    public function getDepartureDateAttribute($value){
+//        return Carbon::parse($value)->format('d-M-Y');
+//    }
+//
+//    public function getReturnDateAttribute($value){
+//        return Carbon::parse($value)->format('d-M-Y');
+//    }
 }

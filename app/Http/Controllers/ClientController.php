@@ -112,6 +112,9 @@ class ClientController extends Controller
     public function show($id)
     {
         //
+        $client = Client::findOrFail($id);
+
+        return view('admin.clients.show', compact('client'));
     }
 
     /**
@@ -140,6 +143,68 @@ class ClientController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
+        $client = Client::findOrFail($id);
+
+        if ($file = $request->file('photo_id')){
+            $input = $request->all();
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            if ($client->photo_id){
+                unlink(public_path() . $client->photo->path);
+            }
+            Photo::findOrFail($client->photo_id)->update(['path'=>$name]);
+
+            $input['photo_id'] = $client->photo_id;
+        }else{
+            $input = $request->except('photo_id');
+
+        }
+
+        $client_input = [
+            'photo_id'=>$client->photo_id,
+            'firstname'=>$input['firstname'],
+            'othername'=>$input['othername'],
+            'lastname'=>$input['lastname'],
+            'email'=>$input['email'],
+            'dob'=>$input['dob'],
+            'gender'=>$input['gender'],
+            'mobile'=>$input['mobile'],
+            'passport_no'=>$input['passport_no'],
+            'expiry_date'=>$input['expiry_date'],
+            'issue_date'=>$input['issue_date'],
+        ];
+//
+        $client  = Client::findOrFail($id);
+
+        $client->update($client_input);
+
+        $input['client_id'] = $id;
+//
+        $ticket_input = [
+            'client_id'=>$input['client_id'],
+            'airline_id'=>$input['airline_id'],
+            'from'=>$input['from'],
+            'to'=>$input['to'],
+            'ticket_type'=>$input['ticket_type'],
+            'purchase_date'=>$input['purchase_date'],
+            'departure_date'=>$input['departure_date'],
+            'return_date'=>$input['return_date'],
+            'actual_cost'=>$input['actual_cost'],
+            'paid'=>$input['paid'],
+        ];
+//
+        $ticket = Ticket::findOrFail($client->ticket_id);
+
+        $ticket->update($ticket_input);
+//            ->update($ticket);
+
+//        Client::findOrFail($input['client_id'])->update(['ticket_id'=>$ticket->id]);
+//
+        Session::flash('msg', 'Client Data Updated ' );
+////
+        return redirect('/admin');
     }
 
     /**
@@ -151,5 +216,23 @@ class ClientController extends Controller
     public function destroy($id)
     {
         //
+
+        $client = Client::findOrFail($id);
+        if($client->photo_id){
+
+            unlink(public_path() . $client->photo->path);
+            Photo::findOrFail($client->photo_id)->delete();
+        }
+
+        Session::flash('del_msg', $client->fullname . ' has been deleted');
+        $client->delete();
+
+        return redirect('/admin');
+
+//        return "this works to delete";
+    }
+
+    public function clients(){
+        return view('admin.clients.index');
     }
 }

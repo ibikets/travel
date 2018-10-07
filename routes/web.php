@@ -29,14 +29,14 @@ Route::group(['middleware'=>'admin'], function (){
         'create'=>'admin.users.create',
         'update'=>'admin.users.update',
         'show'=>'admin.users.show',
+        'edit'=>'admin.users.edit',
     ]]);
 
     Route::resource('admin/clients', 'ClientController', ['names' =>[
         'index'=>'admin.clients.index',
         'create'=>'admin.clients.create',
         'edit'=>'admin.clients.edit',
-        'update'=>'admin.clients.update',
-        'show'=>'admin.clients.show',
+        'show'=>'admin.clients.show'
     ]]);
 
 });

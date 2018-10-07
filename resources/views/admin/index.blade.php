@@ -27,9 +27,9 @@
                                     <i class="material-icons">more_vert</i>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                    <li><a href="{{route('admin.clients.create')}}">Add Client</a></li>
+                                    <li><a href="javascript:void(0);"></a></li>
+                                    <li><a href="javascript:void(0);"></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -47,33 +47,29 @@
                                     <th>Mobile</th>
                                     <th>DOB</th>
                                     <th>Departure Date</th>
-                                    <th>Arrival Date</th>
-                                    <th>Ticket Cost</th>
-                                    <th>Actual Cost</th>
+                                    <th>Return Date</th>
+                                    <th>Ticket Cost (N)</th>
+                                    <th>Actual Cost (N)</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+
+
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 @if(count($clients)>0)
                                     @foreach($clients as $client)
                                         <tr>
-                                            <td><a href="{{route('admin.clients.edit', $client->id)}}"><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</a></td>
+                                            <td><a href="{{route('admin.clients.show', $client->id)}}"><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</a></td>
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
-                                            <td>{{$client->dob}}</td>
-                                            <td>{{$client->ticket->departure_date}}</td>
-                                            <td>{{$client->ticket->return_date}}</td>
-                                            <td>{{$client->ticket->actual_cost}}</td>
-                                            <td>{{$client->ticket->paid}}</td>
+                                            <td>{{date('d-M-Y', strtotime($client->dob))}}</td>
+                                            <td>{{date('d-M-Y', strtotime($client->ticket->departure_date))}}</td>
+                                            <td>{{$client->ticket->return_date ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
+                                            <td>{{number_format($client->ticket->actual_cost, 2)}}</td>
+                                            <td>{{number_format($client->ticket->paid, 2)}}</td>
 
                                         </tr>
                                     @endforeach
@@ -94,11 +90,11 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-pink hover-expand-effect">
                     <div class="icon">
-                        <i class="material-icons">playlist_add_check</i>
+                        <i class="material-icons">person_add</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW TASKS</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                        <div class="text">CLIENTS</div>
+                        <div class="number count-to" data-from="0" data-to="{{count($clients)}}" data-speed="900" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>

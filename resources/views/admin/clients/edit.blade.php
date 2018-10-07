@@ -18,11 +18,21 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="body">
-
-                        {!! Form::model($client, ['method' => 'PATCH', 'action' => ['ClientController@store', $client->id], 'files'=>true]) !!}
-
-                        <h3>Bio Data</h3>
                         <div class="row clearfix">
+                            <div class="">
+                                <a class="btn btn-info col-sm-12" href="{{route('admin.clients.show', $client->id)}}"><b>Back to Client Profile</b></a>
+                            </div>
+                        </div>
+                        {!! Form::model($client, ['method' => 'PATCH', 'action' => ['ClientController@update', $client->id], 'files'=>true]) !!}
+
+
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <img height="100" src="{{$client->photo->path}}" alt="" class="img-responsive img-rounded">
+                            </div>
+
+                            <h3>Bio Data</h3>
+
                             <div class="col-sm-4">
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -45,8 +55,6 @@
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <div class="form-line">
@@ -54,7 +62,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">DOB* : </span>
                                     <div class="form-line">
@@ -62,28 +70,37 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <div class="form-line">
                                         {!! Form::select('gender', [''=>'Select Gender', 'M' => 'Male', 'F' => 'Female'], null,  ['class'=>'form-control show-tick']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                                 <i class="material-icons">phone</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Mobile*', 'required']) !!}
+                                        {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number pull-left', 'placeholder'=>'Mobile*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="row clearfix">
+
+
+                        </div>
+                        <div class="row clearfix">
+
                         </div>
 
                         <h3>Passport Data</h3>
                         <div class="row clearfix">
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="input-group">
 
                                     <div class="form-line">
@@ -92,7 +109,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Expiry Date* : </span>
                                     <div class="form-line">
@@ -100,7 +117,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Issue Date*:  </span>
                                     <div class="form-line">
@@ -108,9 +125,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Upload Passport:  </span>
+                                    <span class="input-group-addon"><i class="material-icons">attach_file</i></span>
                                     <div class="form-line">
                                         {!! Form::file('photo_id', null, ['class'=>'form-control', 'placeholder'=>'Mobile']) !!}
                                     </div>
@@ -124,28 +143,30 @@
                         <h3>Ticket Information</h3>
 
                         <div class="row clearfix">
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group form-float">
                                     <span class="input-group-addon">Ariline *: </span>
                                     {!! Form::select('airline_id', [''=>'Select Airline'] + $airlines, $client->ticket->airline_id, ['class'=>'form-control show-tick', 'required']) !!}
 
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="form-line">
                                         {!! Form::text('from', $client->ticket->from, ['class'=>'form-control', 'placeholder'=>'From*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <div class="form-line">
                                         {!! Form::text('to', $client->ticket->to, ['class'=>'form-control', 'placeholder'=>'To*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
                                 <div class="input-group form-float">
                                     <span class="input-group-addon">Trip Type* : </span>
                                     {!! Form::select('ticket_type', [''=>'Select Ticket Type', 'return'=>'Return', 'one-way'=>'One Way' ], $client->ticket->ticket_type, ['class'=>'form-control show-tick', 'required']) !!}
@@ -167,6 +188,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Return Date:  </span>
@@ -175,20 +198,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                                <i class="material-icons">money</i>
+                                                <i class="material-icons">credit_card</i>
                                             </span>
                                     <div class="form-line">
                                         {!! Form::number('actual_cost', $client->ticket->actual_cost, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Ticket Cost*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                                <i class="material-icons">money</i>
+                                                <i class="material-icons">credit_card</i>
                                             </span>
                                     <div class="form-line">
                                         {!! Form::number('paid', $client->ticket->paid, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Amount Paid*', 'required']) !!}
@@ -199,7 +222,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Add Client', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::submit('Edit Client', ['class'=>'btn btn-success col-sm-12']) !!}
                         </div>
 
                         {!! Form::close() !!}

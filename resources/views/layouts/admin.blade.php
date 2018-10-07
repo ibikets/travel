@@ -27,6 +27,9 @@
     <!-- Morris Chart Css-->
     <link href="/plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <!--WaitMe Css-->
+    <link href="/plugins/waitme/waitMe.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="/css/style.css" rel="stylesheet">
 
@@ -82,6 +85,9 @@
     <!-- Slimscroll Plugin Js -->
     <script src="/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
     <!-- Jquery Validation Plugin Css -->
     <script src="/plugins/jquery-validation/jquery.validate.js"></script>
 
@@ -93,6 +99,9 @@
 
     <!-- Waves Effect Plugin Js -->
     <script src="/plugins/node-waves/waves.js"></script>
+
+    <!-- Wait Me Plugin Js -->
+    <script src="/plugins/waitme/waitMe.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
     <script src="/plugins/jquery-datatable/jquery.dataTables.js"></script>
@@ -130,6 +139,7 @@
     <script src="/js/pages/forms/form-wizard.js"></script>
     <script src="/js/pages/index.js"></script>
     <script src="/js/pages/tables/jquery-datatable.js"></script>
+    <script src="/js/pages/cards/colored.js"></script>
 
     <!-- Demo Js -->
     <script src="/js/demo.js"></script>

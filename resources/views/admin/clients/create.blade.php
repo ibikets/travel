@@ -40,6 +40,7 @@
                         {!! Form::open(['method' => 'POST', 'action' => 'ClientController@store', 'files'=>true]) !!}
 
                         <h3>Bio Data</h3>
+
                         <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="form-group form-float">
@@ -72,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">DOB* : </span>
                                     <div class="form-line">
@@ -80,18 +81,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <div class="form-line">
                                         {!! Form::select('gender', [''=>'Select Gender', 'M' => 'Male', 'F' => 'Female'], null,  ['class'=>'form-control show-tick']) !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                                <i class="material-icons">phone</i>
-                                            </span>
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">phone</i>
+                                                </span>
                                     <div class="form-line">
                                         {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Mobile*', 'required']) !!}
                                     </div>
@@ -101,7 +105,7 @@
 
                         <h3>Passport Data</h3>
                         <div class="row clearfix">
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <div class="input-group">
 
                                     <div class="form-line">
@@ -110,7 +114,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Expiry Date* : </span>
                                     <div class="form-line">
@@ -118,7 +122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">Issue Date*:  </span>
                                     <div class="form-line">
@@ -126,44 +130,46 @@
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="row clearfix">
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Upload Passport:  </span>
+                                    <span class="input-group-addon"><i class="material-icons">attach_file</i></span>
                                     <div class="form-line">
                                         {!! Form::file('photo_id', null, ['class'=>'form-control', 'placeholder'=>'Mobile']) !!}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix">
-
-                        </div>
 
                         <h3>Ticket Information</h3>
 
                             <div class="row clearfix">
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="input-group form-float">
                                         <span class="input-group-addon">Ariline *: </span>
                                         {!! Form::select('airline_id', [''=>'Select Airline'] + $airlines, null, ['class'=>'form-control show-tick', 'required']) !!}
 
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="input-group">
                                         <div class="form-line">
                                             {!! Form::text('from', null, ['class'=>'form-control', 'placeholder'=>'From*', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="input-group">
                                         <div class="form-line">
                                             {!! Form::text('to', null, ['class'=>'form-control', 'placeholder'=>'To*', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
                                     <div class="input-group form-float">
                                         <span class="input-group-addon">Trip Type* : </span>
                                         {!! Form::select('ticket_type', [''=>'Select Ticket Type', 'return'=>'Return', 'one-way'=>'One Way' ], null, ['class'=>'form-control show-tick', 'required']) !!}
@@ -185,6 +191,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="input-group">
                                         <span class="input-group-addon">Return Date:  </span>
@@ -193,20 +201,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="input-group">
                                     <span class="input-group-addon">
-                                                <i class="material-icons">money</i>
+                                                <i class="material-icons">credit_card</i>
                                             </span>
                                         <div class="form-line">
                                             {!! Form::number('actual_cost', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Ticket Cost*', 'required']) !!}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="input-group">
                                     <span class="input-group-addon">
-                                                <i class="material-icons">money</i>
+                                                <i class="material-icons">credit_card</i>
                                             </span>
                                         <div class="form-line">
                                             {!! Form::number('paid', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Amount Paid*', 'required']) !!}
