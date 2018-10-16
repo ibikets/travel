@@ -65,24 +65,12 @@
                                             <td><a href="{{route('admin.clients.show', $client->id)}}"><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</a></td>
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
-<<<<<<< HEAD
-                                            <td>{{date('d-M-Y', strtotime($client->dob))}}</td>
-                                            <td>{{date('d-M-Y', strtotime($client->ticket->departure_date))}}</td>
-                                            <td>{{$client->ticket->return_date ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
-                                            <td>{{number_format($client->ticket->actual_cost, 2)}}</td>
-                                            <td>{{number_format($client->ticket->paid, 2)}}</td>
+                                            <td>{{$client->dob ? date('d-M-Y', strtotime($client->dob)) : "Not Available"}}</td>
+                                            <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->departure_date)) : "Not Available"}}</td>
+                                            <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
+                                            <td>{{$client->ticket ? number_format($client->ticket->actual_cost, 2) : "Not Paid Yet"}}</td>
+                                            <td>{{$client->ticket ? number_format($client->ticket->paid, 2) : "Not Paid Yet"}}</td>
 
-=======
-                                            <td>{{$client->dob}}</td>
-                                            <td>{{$client->ticket->departure_date ? $client->ticket->departure_date : "Not Available"}}</td>
-                                            <td>{{$client->return_date}}</td>
-                                            <td>{{$client->actual_cost}}</td>
-                                            <td>{{$client->paid}}</td>
-                                            <td>{{$client->ticket->departure_date}}</td>
-                                            <td>{{$client->ticket->return_date}}</td>
-                                            <td>{{$client->ticket->actual_cost}}</td>
-                                            <td>{{$client->ticket->paid}}</td>
->>>>>>> d4efab54da361d6a740a3cd3fe224e72d3f51291
                                         </tr>
                                     @endforeach
                                 @else
