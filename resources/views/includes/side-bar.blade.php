@@ -25,7 +25,6 @@
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">persons</i>
                 <span>Staff</span>
-                <span>Staffs</span>
             </a>
             <ul class="ml-menu">
                 <li>
@@ -33,20 +32,30 @@
                 </li>
                 <li>
                     <a href="{{route('admin.users.index')}}">View All Staff</a>
-                    <a href="{{route('admin.users.index')}}">View All Staffs</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="pages/helper-classes.html">
-                <i class="material-icons">layers</i>
-                <span>Helper Classes</span>
+            <a href="javascript:void(0);" class="menu-toggle">
+                <i class="material-icons">build</i>
+                <span>Setting</span>
             </a>
+            <ul class="ml-menu">
+                <li>
+                    <a href="{{route('admin.airline.index')}}">Airlines</a>
+                </li>
+                <li>
+                    <a href="{{route('admin.roles.index')}}">Roles</a>
+                </li>
+                <li>
+                    <a href="{{route('admin.status.index')}}">Status</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">widgets</i>
-                <span>Widgets</span>
+                <i class="material-icons">build</i>
+                <span>Settings</span>
             </a>
             <ul class="ml-menu">
                 <li>

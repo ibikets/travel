@@ -41,4 +41,25 @@ Route::group(['middleware'=>'admin'], function (){
         'show'=>'admin.clients.show'
     ]]);
 
+    Route::resource('admin/roles', 'RoleController', ['names' =>[
+        'index'=>'admin.roles.index',
+        'create'=>'admin.roles.create',
+        'edit'=>'admin.roles.edit',
+        'show'=>'admin.roles.show'
+    ]]);
+
+    Route::resource('admin/status', 'StatusController', ['names' =>[
+        'index'=>'admin.status.index',
+        'create'=>'admin.status.create',
+        'edit'=>'admin.status.edit',
+        'show'=>'admin.status.show'
+    ]]);
+
+    Route::resource('admin/airline', 'AirlineController', ['names' =>[
+        'index'=>'admin.airline.index',
+        'create'=>'admin.airline.create',
+        'edit'=>'admin.airline.edit',
+        'show'=>'admin.airline.show'
+    ]]);
+
 });
