@@ -25,6 +25,7 @@
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">persons</i>
                 <span>Staff</span>
+                <span>Staffs</span>
             </a>
             <ul class="ml-menu">
                 <li>
@@ -32,6 +33,7 @@
                 </li>
                 <li>
                     <a href="{{route('admin.users.index')}}">View All Staff</a>
+                    <a href="{{route('admin.users.index')}}">View All Staffs</a>
                 </li>
             </ul>
         </li>

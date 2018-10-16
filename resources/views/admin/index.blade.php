@@ -79,6 +79,11 @@
                                             <td>{{$client->ticket->return_date}}</td>
                                             <td>{{$client->ticket->actual_cost}}</td>
                                             <td>{{$client->ticket->paid}}</td>
+                                            <td>{{$client->dob ? date('d-M-Y', strtotime($client->dob)) : "Not Available"}}</td>
+                                            <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->departure_date)) : "Not Available"}}</td>
+                                            <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
+                                            <td>{{$client->ticket ? number_format($client->ticket->actual_cost, 2) : "Not Paid Yet"}}</td>
+                                            <td>{{$client->ticket ? number_format($client->ticket->paid, 2) : "Not Paid Yet"}}</td>
                                         </tr>
                                     @endforeach
                                 @else
