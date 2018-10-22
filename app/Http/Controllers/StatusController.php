@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
+
+    public function dash(){
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,8 @@ class StatusController extends Controller
     public function index()
     {
         //
+        return view('admin.status.index');
+
     }
 
     /**

@@ -26,8 +26,13 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::resource('admin', 'AdminController');
 
+    Route::get('/admin/status/index', 'StatusController@index')->name('admin.status.index');
+
+    Route::get('/admin/users/index', 'AdminUsersController@index')->name('admin.users.index');
+
+    Route::get('/admin/clients/index', 'ClientController@index')->name('admin.clients.index');
+
     Route::resource('admin/users', 'AdminUsersController', ['names' =>[
-        'index'=>'admin.users.index',
         'create'=>'admin.users.create',
         'update'=>'admin.users.update',
         'show'=>'admin.users.show',
@@ -35,7 +40,6 @@ Route::group(['middleware'=>'admin'], function (){
     ]]);
 
     Route::resource('admin/clients', 'ClientController', ['names' =>[
-        'index'=>'admin.clients.index',
         'create'=>'admin.clients.create',
         'edit'=>'admin.clients.edit',
         'show'=>'admin.clients.show'
@@ -49,7 +53,6 @@ Route::group(['middleware'=>'admin'], function (){
     ]]);
 
     Route::resource('admin/status', 'StatusController', ['names' =>[
-        'index'=>'admin.status.index',
         'create'=>'admin.status.create',
         'edit'=>'admin.status.edit',
         'show'=>'admin.status.show'
