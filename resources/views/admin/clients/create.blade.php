@@ -133,11 +133,25 @@
 
                         </div>
                         <div class="row clearfix">
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="material-icons">attach_file</i></span>
                                     <div class="form-line">
                                         {!! Form::file('photo_id', null, ['class'=>'form-control', 'placeholder'=>'Mobile']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        {!! Form::text('ticket_ref', null, ['class'=>'form-control', 'placeholder'=>'Ticket Ref: ']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        {!! Form::text('airline_ref', null, ['class'=>'form-control', 'placeholder'=>'Airline Ref: ']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -195,12 +209,30 @@
                             <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="input-group">
+                                        <span class="input-group-addon">Departure Time:  </span>
+                                        <div class="form-line">
+                                            {!! Form::time('departure_time', null, ['class'=>'form-control time12', 'placeholder'=>'Departure Time', 'required']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
                                         <span class="input-group-addon">Return Date:  </span>
                                         <div class="form-line">
                                             {!! Form::date('return_date', null, ['class'=>'form-control datetime', 'placeholder'=>'Return Date']) !!}
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Return Time:  </span>
+                                        <div class="form-line">
+                                            {!! Form::time('return_time', null, ['class'=>'form-control time12', 'placeholder'=>'Return Time']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="input-group">
                                     <span class="input-group-addon">
@@ -221,7 +253,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         <div class="form-group">

@@ -26,11 +26,15 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::resource('admin', 'AdminController');
 
-    Route::get('/admin/status/index', 'StatusController@index')->name('admin.status.index');
-
     Route::get('/admin/users/index', 'AdminUsersController@index')->name('admin.users.index');
 
     Route::get('/admin/clients/index', 'ClientController@index')->name('admin.clients.index');
+
+    Route::get('/admin/status/index', 'StatusController@index')->name('admin.status.index');
+
+    Route::get('/admin/roles/index', 'RoleController@index')->name('admin.roles.index');
+
+    Route::get('/admin/airline/index', 'AirlineController@index')->name('admin.airline.index');
 
     Route::resource('admin/users', 'AdminUsersController', ['names' =>[
         'create'=>'admin.users.create',
@@ -42,27 +46,29 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('admin/clients', 'ClientController', ['names' =>[
         'create'=>'admin.clients.create',
         'edit'=>'admin.clients.edit',
-        'show'=>'admin.clients.show'
+        'show'=>'admin.clients.show',
+        'update'=>'admin.clients.update',
     ]]);
 
     Route::resource('admin/roles', 'RoleController', ['names' =>[
-        'index'=>'admin.roles.index',
         'create'=>'admin.roles.create',
         'edit'=>'admin.roles.edit',
-        'show'=>'admin.roles.show'
+        'show'=>'admin.roles.show',
+        'update'=>'admin.roles.update',
     ]]);
 
     Route::resource('admin/status', 'StatusController', ['names' =>[
         'create'=>'admin.status.create',
         'edit'=>'admin.status.edit',
-        'show'=>'admin.status.show'
+        'show'=>'admin.status.show',
+        'update'=>'admin.status.update',
     ]]);
 
     Route::resource('admin/airline', 'AirlineController', ['names' =>[
-        'index'=>'admin.airline.index',
         'create'=>'admin.airline.create',
         'edit'=>'admin.airline.edit',
-        'show'=>'admin.airline.show'
+        'show'=>'admin.airline.show',
+        'update'=>'admin.airline.update',
     ]]);
 
 });

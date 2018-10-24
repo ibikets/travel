@@ -135,6 +135,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        {!! Form::text('ticket_ref', $client->ticket->ticket_ref, ['class'=>'form-control', 'placeholder'=>'Airline Ref: ']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        {!! Form::text('airline_ref', $client->ticket->airline_ref, ['class'=>'form-control', 'placeholder'=>'Airline Ref: ']) !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row clearfix">
 
@@ -192,12 +206,30 @@
                         <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="input-group">
+                                    <span class="input-group-addon">Departure Time:  </span>
+                                    <div class="form-line">
+                                        {!! Form::time('departure_time', $client->ticket->departure_time, ['class'=>'form-control time12', 'placeholder'=>'Departure Time', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
                                     <span class="input-group-addon">Return Date:  </span>
                                     <div class="form-line">
                                         {!! Form::date('return_date', $client->ticket->return_date, ['class'=>'form-control datetime', 'placeholder'=>'Return Date']) !!}
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Return Time:  </span>
+                                    <div class="form-line">
+                                        {!! Form::time('return_time', $client->ticket->return_time, ['class'=>'form-control time12', 'placeholder'=>'Return Time']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
@@ -218,7 +250,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="form-group">

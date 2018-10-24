@@ -60,6 +60,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <h3>Ticket Information</h3>
+                                <p><b>Airline Ref:</b>{{$client->ticket->airline_ref}}</p>
+                                <p><b>Ticket Ref:</b>{{$client->ticket->ticket_ref}}</p>
                                 <p><b>Departing: </b>{{$client->ticket->from}}</p>
                                 <p><b>Arriving: </b>{{$client->ticket->to}}</p>
                                 <p><b>Flight: </b>{{$client->ticket->airline->name}}</p>

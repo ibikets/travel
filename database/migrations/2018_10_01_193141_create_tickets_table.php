@@ -19,10 +19,14 @@ class CreateTicketsTable extends Migration
             $table->string('airline_id');
             $table->string('from');
             $table->string('to');
+            $table->string('ticket_ref')->nullable();
+            $table->string('airline_ref')->nullable();
             $table->string('ticket_type');
             $table->date('purchase_date');
             $table->date('departure_date');
+            $table->time('departure_time')->nullable();
             $table->date('return_date')->nullable();
+            $table->time('return_time')->nullable();
             $table->integer('actual_cost');
             $table->integer('paid');
             $table->timestamps();
