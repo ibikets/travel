@@ -12,11 +12,11 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Edit Airline: {{$airline->name}}
+                        Edit Status: {{$status->name}}
                     </h2>
                 </div>
                 <div class="body">
-                    {!! Form::model($airline, ['method'=>'PATCH', 'action'=>['AirlineController@update', $airline->id]]) !!}
+                    {!! Form::model($status, ['method'=>'PATCH', 'action'=>['StatusController@update', $status->id]]) !!}
 
                     <div class="col-sm-12">
                         <div class="form-group form-float">

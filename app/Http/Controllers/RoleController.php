@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RoleController extends Controller
 {
@@ -14,6 +16,10 @@ class RoleController extends Controller
     public function index()
     {
         //
+
+        $roles = Role::paginate(5);
+
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -35,6 +41,18 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+        if ($this->validate($request, ['name'=>'unique:roles'])){
+            Role::create($request->all());
+            Session::flash('msg', 'Role Added Successfully');
+        }else{
+            Session::flash('del_msg', 'Role Already Exists');
+        };
+
+
+        return redirect('/admin/roles/index');
     }
 
     /**
@@ -57,6 +75,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         //
+        $role = Role::findOrFail($id);
+
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
@@ -69,6 +90,12 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Role::findOrFail($id)->update($request->all());
+
+        Session::flash('update_msg', 'Role has been updated');
+
+        return redirect('admin/roles/index');
+
     }
 
     /**
@@ -80,5 +107,13 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+
+        $role = Role::findOrFail($id);
+
+        Session::flash('del_msg', 'Role: ' . $role->name . ' Has Been Deleted');
+
+        $role->delete();
+
+        return redirect('admin/roles/index');
     }
 }

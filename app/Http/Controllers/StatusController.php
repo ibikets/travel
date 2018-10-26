@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StatusController extends Controller
 {
@@ -18,7 +20,8 @@ class StatusController extends Controller
     public function index()
     {
         //
-        return view('admin.status.index');
+        $statuses = Status::paginate(5);
+        return view('admin.status.index', compact('statuses'));
 
     }
 
@@ -41,6 +44,14 @@ class StatusController extends Controller
     public function store(Request $request)
     {
         //
+        if ($this->validate($request, ['name'=>'unique:statuses'])){
+            Status::create($request->all());
+            Session::flash('msg', 'A New Status has been Created');
+        }else{
+            Session::flash('del_msg', 'Status Already Exists');
+        }
+
+        return redirect('admin/status/index');
     }
 
     /**
@@ -63,6 +74,9 @@ class StatusController extends Controller
     public function edit($id)
     {
         //
+        $status = Status::findOrFail($id);
+
+        return view('admin.status.edit', compact('status'));
     }
 
     /**
@@ -75,6 +89,11 @@ class StatusController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Status::findOrFail($id)->update($request->all());
+
+        Session::flash('update_msg', 'Status has been Updated');
+
+        return redirect('admin/status/index');
     }
 
     /**
@@ -86,5 +105,10 @@ class StatusController extends Controller
     public function destroy($id)
     {
         //
+        $status = Status::findOrFail($id);
+        Session::flash('del_msg', 'Status: ' . $status->name . ' Has Been Deleted');
+        $status->delete();
+
+        return redirect('admin/status/index');
     }
 }

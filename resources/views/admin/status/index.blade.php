@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        AIRLINE LIST
+                        STATUS LIST
                     </h2>
 
                 </div>
@@ -33,15 +33,15 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            @if(count($airlines)>0)
-                                @foreach($airlines as $airline)
+                            @if(count($statuses)>0)
+                                @foreach($statuses as $status)
                                     <tr>
 
-                                        <td>{{$airline->id}}</td>
-                                        <td>{{$airline->name}}</td>
+                                        <td>{{$status->id}}</td>
+                                        <td>{{$status->name}}</td>
                                         <td>
-                                            <a href="{{route('admin.airline.edit', $airline->id)}}" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left"><i class="material-icons">edit</i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'action' => ['AirlineController@destroy', $airline->id]]) !!}
+                                            <a href="{{route('admin.status.edit', $status->id)}}" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left"><i class="material-icons">edit</i></a>
+                                            {!! Form::open(['method' => 'DELETE', 'action' => ['StatusController@destroy', $status->id]]) !!}
 
                                                 {{--{!! Form::submit('DELETE CLIENT: ' . $client->fullname ,['class'=>'btn btn-danger col-sm-3 pull-right', 'onclick' => 'return confirm("Are you sure?");']) !!}--}}
                                                 <button type="submit" onclick='return confirm("Are you sure?");' class="btn btn-danger btn-circle waves-effect waves-circle waves-float pull-right"><i class="material-icons">delete</i></button>
@@ -57,7 +57,7 @@
                             @endif
                             </tbody>
                         </table>
-                        {{ $airlines->links() }}
+                        {{ $statuses->links() }}
                     </div>
                 </div>
             </div>
@@ -66,11 +66,11 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        ADD NEW AIRLINE
+                        ADD NEW STATUS
                     </h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['method'=>'POST', 'action'=>'AirlineController@store']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'StatusController@store']) !!}
 
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -81,7 +81,7 @@
                     </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
+                            {!! Form::submit('Create', ['class'=>'btn btn-success']) !!}
                         </div>
 
                     {!! Form::close() !!}

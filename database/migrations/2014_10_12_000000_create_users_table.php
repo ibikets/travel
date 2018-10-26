@@ -24,7 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->nullable();
             $table->date('dob')->nullable();
             $table->string('lga')->nullable();
+            $table->string('state_of_origin')->nullable();
             $table->string('gender')->nullable();
+            $table->string('position')->nullable();
             $table->integer('salary')->nullable();
             $table->rememberToken();
             $table->timestamps();

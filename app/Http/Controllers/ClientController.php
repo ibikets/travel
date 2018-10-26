@@ -213,7 +213,7 @@ class ClientController extends Controller
 
 //        Client::findOrFail($input['client_id'])->update(['ticket_id'=>$ticket->id]);
 //
-        Session::flash('msg', 'Client Data Updated ' );
+        Session::flash('update_msg', 'Client Data Updated ' );
 ////
         return redirect('/admin');
     }
@@ -243,7 +243,5 @@ class ClientController extends Controller
 //        return "this works to delete";
     }
 
-    public function clients(){
-        return view('admin.clients.index');
-    }
+
 }
