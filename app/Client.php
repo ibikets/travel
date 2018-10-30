@@ -28,9 +28,7 @@ class Client extends Model
         return "{$this->firstname} {$this->othername} {$this->lastname}";
     }
 
-    public function setNameAttribute(){
-        return
-    }
+
 
     public function getSexAttribute(){
         $sex = $this->gender;

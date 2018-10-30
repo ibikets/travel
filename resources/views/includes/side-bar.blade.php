@@ -42,6 +42,9 @@
             </a>
             <ul class="ml-menu">
                 <li>
+                    <a href="{{route('admin.setting.index')}}">Settings</a>
+                </li>
+                <li>
                     <a href="{{route('admin.airline.index')}}">Airlines</a>
                 </li>
                 <li>

@@ -36,6 +36,8 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::get('/admin/airline/index', 'AirlineController@index')->name('admin.airline.index');
 
+    Route::get('admin/setting/index', 'SettingController@index')->name('admin.setting.index');
+
     Route::resource('admin/users', 'AdminUsersController', ['names' =>[
         'create'=>'admin.users.create',
         'update'=>'admin.users.update',

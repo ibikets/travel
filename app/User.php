@@ -44,4 +44,8 @@ class User extends Authenticatable
             return true;
         }
     }
+
+//    public function setNameAttribute(){
+//        return
+//    }
 }
