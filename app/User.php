@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','lga', 'mobile', 'dob', 'role_id', 'status_id', 'photo_id', 'position',
+        'name', 'email', 'password','lga', 'mobile', 'dob', 'role_id', 'status_id', 'photo_id', 'position', 'gender', 'salary', 'state_of_origin',
     ];
 
     /**
@@ -45,7 +45,7 @@ class User extends Authenticatable
         }
     }
 
-//    public function setNameAttribute(){
-//        return
-//    }
+    public function setNameAttribute($value1, $value2, $value3){
+        $this->attributes['name'] =
+    }
 }

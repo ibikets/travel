@@ -38,6 +38,18 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::get('admin/setting/index', 'SettingController@index')->name('admin.setting.index');
 
+    Route::post('admin/storerole', 'SettingController@storeRole')->name('setting.storeRole');
+
+    Route::post('admin/storeairline', 'SettingController@storeAirline')->name('setting.storeAirline');
+
+    Route::post('admin/storestatus', 'SettingController@storeStatus')->name('setting.storeStatus');
+
+    Route::delete('admin/storerole/{role}', 'SettingController@destroyRole')->name('setting.destroyRole');
+
+    Route::delete('admin/storeairline/{airline}', 'SettingController@destroyAirline')->name('setting.destroyAirline');
+
+    Route::delete('admin/storestatus/{status}', 'SettingController@destroyStatus')->name('setting.destroyStatus');
+
     Route::resource('admin/users', 'AdminUsersController', ['names' =>[
         'create'=>'admin.users.create',
         'update'=>'admin.users.update',
@@ -72,5 +84,17 @@ Route::group(['middleware'=>'admin'], function (){
         'show'=>'admin.airline.show',
         'update'=>'admin.airline.update',
     ]]);
+
+//    Route::resource('admin/setting', 'SettingController', ['names' =>[
+//        'create'=>'admin.setting.create',
+//        'storeRole'=>'admin.setting.index',
+//        'edit'=>'admin.setting.edit',
+//        'show'=>'admin.setting.show',
+//        'update'=>'admin.setting.update',
+//    ]]);
+
+    Route::resource('admin/setting', 'SettingController');
+
+
 
 });

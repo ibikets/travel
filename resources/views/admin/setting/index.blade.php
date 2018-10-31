@@ -16,7 +16,7 @@
                     </h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['method'=>'POST', 'action'=>'RoleController@store']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'SettingController@storeRole']) !!}
 
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -42,7 +42,7 @@
                     </h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['method'=>'POST', 'action'=>'StatusController@store']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'SettingController@storeStatus']) !!}
 
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -76,7 +76,7 @@
                     </h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['method'=>'POST', 'action'=>'AirlineController@store']) !!}
+                    {!! Form::open(['method'=>'POST', 'action'=>'SettingController@storeAirline']) !!}
 
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -136,7 +136,7 @@
                                         <td>{{$role->name}}</td>
                                         <td>
                                             <a href="{{route('admin.roles.edit', $role->id)}}" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left"><i class="material-icons">edit</i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'action' => ['RoleController@destroy', $role->id]]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'action' => ['SettingController@destroyRole', $role->id]]) !!}
 
                                             {{--{!! Form::submit('DELETE CLIENT: ' . $client->fullname ,['class'=>'btn btn-danger col-sm-3 pull-right', 'onclick' => 'return confirm("Are you sure?");']) !!}--}}
                                             <button type="submit" onclick='return confirm("Are you sure?");' class="btn btn-danger btn-circle waves-effect waves-circle waves-float pull-right"><i class="material-icons">delete</i></button>
@@ -191,7 +191,7 @@
                                         <td>{{$status->name}}</td>
                                         <td>
                                             <a href="{{route('admin.status.edit', $status->id)}}" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left"><i class="material-icons">edit</i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'action' => ['StatusController@destroy', $status->id]]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'action' => ['SettingController@destroyStatus', $status->id]]) !!}
 
                                             {{--{!! Form::submit('DELETE CLIENT: ' . $client->fullname ,['class'=>'btn btn-danger col-sm-3 pull-right', 'onclick' => 'return confirm("Are you sure?");']) !!}--}}
                                             <button type="submit" onclick='return confirm("Are you sure?");' class="btn btn-danger btn-circle waves-effect waves-circle waves-float pull-right"><i class="material-icons">delete</i></button>
@@ -251,7 +251,7 @@
                                         <td>{{$airline->name}}</td>
                                         <td>
                                             <a href="{{route('admin.airline.edit', $airline->id)}}" class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left"><i class="material-icons">edit</i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'action' => ['AirlineController@destroy', $airline->id]]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'action' => ['SettingController@destroyAirline', $airline->id]]) !!}
 
                                             {{--{!! Form::submit('DELETE CLIENT: ' . $client->fullname ,['class'=>'btn btn-danger col-sm-3 pull-right', 'onclick' => 'return confirm("Are you sure?");']) !!}--}}
                                             <button type="submit" onclick='return confirm("Are you sure?");' class="btn btn-danger btn-circle waves-effect waves-circle waves-float pull-right"><i class="material-icons">delete</i></button>
