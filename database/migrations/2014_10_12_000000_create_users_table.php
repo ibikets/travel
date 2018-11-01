@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('position')->nullable();
             $table->integer('salary')->nullable();
+            $table->date('hire_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
