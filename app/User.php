@@ -46,6 +46,6 @@ class User extends Authenticatable
     }
 
     public function setNameAttribute($value1, $value2, $value3){
-        $this->attributes['name'] =
+        $this->attributes['name'] = ;
     }
 }
