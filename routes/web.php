@@ -85,16 +85,11 @@ Route::group(['middleware'=>'admin'], function (){
         'update'=>'admin.airline.update',
     ]]);
 
-//    Route::resource('admin/setting', 'SettingController', ['names' =>[
-//        'create'=>'admin.setting.create',
-//        'storeRole'=>'admin.setting.index',
-//        'edit'=>'admin.setting.edit',
-//        'show'=>'admin.setting.show',
-//        'update'=>'admin.setting.update',
-//    ]]);
-
-    Route::resource('admin/setting', 'SettingController');
-
-
+    Route::resource('admin/setting', 'SettingController', ['names' =>[
+        'create'=>'admin.setting.create',
+        'edit'=>'admin.setting.edit',
+        'show'=>'admin.setting.show',
+        'update'=>'admin.setting.update',
+    ]]);
 
 });

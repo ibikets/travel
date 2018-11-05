@@ -28,6 +28,10 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('position')->nullable();
             $table->integer('salary')->nullable();
+            $table->date('hire_date')->nullable();
+            $table->date('confirmation_date')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('account_no')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
