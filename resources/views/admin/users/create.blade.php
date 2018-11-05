@@ -54,7 +54,7 @@
                                                 <i class="material-icons">email</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) !!}
+                                        {!! Form::email('email', null, ['class'=>'form-control email', 'placeholder'=>'Email']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                                     <i class="material-icons">phone</i>
                                                 </span>
                                     <div class="form-line">
-                                        {!! Form::number('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Mobile*', 'required']) !!}
+                                        {!! Form::text('mobile', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Ex: +00 (000) 000-00-00*', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -129,14 +129,25 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="input-group">
+                                    <span class="input-group-addon">Confirmation Date:  </span>
+                                    <div class="form-line">
+                                        {!! Form::date('confirmation_date', null, ['class'=>'form-control date', 'placeholder'=>'Confirmation Date']) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="input-group">
                                     <span class="input-group-addon">
                                                 <i class="material-icons">attach_money</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('salary', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Salary', 'required']) !!}
+                                        {!! Form::text('salary', null, ['class'=>'form-control money-dollar', 'placeholder'=>'Ex: 99,99 $', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="input-group">
                                         <span class="input-group-addon">
@@ -147,6 +158,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                    <i class="material-icons">assignment_ind</i>
+                                                </span>
+                                    <div class="form-line">
+                                        {!! Form::text('bank', null, ['class'=>'form-control', 'placeholder'=>'Bank Name*', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                                <i class="material-icons">attach_money</i>
+                                            </span>
+                                    <div class="form-line">
+                                        {!! Form::number('account_no', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Account No.:', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 
@@ -154,23 +185,26 @@
                         <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="input-group">
+                                    <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
                                     <div class="form-line">
-                                        {!! Form::password('password', null, ['class'=>'form-control', 'placeholder'=>'Password', 'required']) !!}
+                                        {!! Form::password('password', ['class'=>'form-control', 'id'=>'password', 'placeholder'=>'Password', 'required']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
+                                    <div class="form-line">
+                                        {!! Form::password('confirm_password', ['class'=>'form-control', 'id'=>'confirm_password', 'placeholder'=>'Confirm Password', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                <label for="password_2">Password</label>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <div class="input-group">
-                                    <div class="form-line">
-                                        <input type="password" id="password_2" class="form-control" placeholder="Enter your password">
-                                        {!! Form::password('password', null, ['class'=>'form-control', 'placeholder'=>'Password', 'required']) !!}
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                         <div class="row clearfix">
@@ -188,5 +222,17 @@
             </div>
         </div>
     </div>
+
+@stop
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+
+            // jQuery methods go here...
+            $("#password")
+
+        });
+    </script>
 
 @stop

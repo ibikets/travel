@@ -39,9 +39,7 @@
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                 <tr>
-                                    <td colspan="8" style="text-align: center"><b>Client List</b></td>
-                                </tr>
-                                <tr>
+                                    <th>Travelstart Ref</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
@@ -50,6 +48,7 @@
                                     <th>Return Date</th>
                                     <th>Ticket Cost (N)</th>
                                     <th>Actual Cost (N)</th>
+
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -62,28 +61,16 @@
                                 @if(count($clients)>0)
                                     @foreach($clients as $client)
                                         <tr>
-                                            <td><a href="{{route('admin.clients.show', $client->id)}}"><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</a></td>
+                                            <td><a href="{{route('admin.clients.show', $client->id)}}"><b>{{$client->ticket ? $client->ticket->ticket_ref : "Non Assigned"}}</b></a></td>
+                                            <td><b>{{$client->lastname}}</b>{{ ', ' . $client->firstname . ' ' . $client->othername}}</td>
                                             <td>{{$client->email}}</td>
                                             <td>{{$client->mobile}}</td>
-                                            <td>{{date('d-M-Y', strtotime($client->dob))}}</td>
-                                            <td>{{date('d-M-Y', strtotime($client->ticket->departure_date))}}</td>
-                                            <td>{{$client->ticket->return_date ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
-                                            <td>{{number_format($client->ticket->actual_cost, 2)}}</td>
-                                            <td>{{number_format($client->ticket->paid, 2)}}</td>
-                                            <td>{{$client->dob}}</td>
-                                            <td>{{$client->ticket->departure_date ? $client->ticket->departure_date : "Not Available"}}</td>
-                                            <td>{{$client->return_date}}</td>
-                                            <td>{{$client->actual_cost}}</td>
-                                            <td>{{$client->paid}}</td>
-                                            <td>{{$client->ticket->departure_date}}</td>
-                                            <td>{{$client->ticket->return_date}}</td>
-                                            <td>{{$client->ticket->actual_cost}}</td>
-                                            <td>{{$client->ticket->paid}}</td>
                                             <td>{{$client->dob ? date('d-M-Y', strtotime($client->dob)) : "Not Available"}}</td>
                                             <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->departure_date)) : "Not Available"}}</td>
                                             <td>{{$client->ticket ? date('d-M-Y', strtotime($client->ticket->return_date)) : "One Way"}}</td>
-                                            <td>{{$client->ticket ? number_format($client->ticket->actual_cost, 2) : "Not Paid Yet"}}</td>
-                                            <td>{{$client->ticket ? number_format($client->ticket->paid, 2) : "Not Paid Yet"}}</td>
+                                            <td>{{$client->ticket ? "N". number_format($client->ticket->actual_cost, 2) : "Not Paid Yet"}}</td>
+                                            <td>{{$client->ticket ? "N". number_format($client->ticket->paid, 2) : "Not Paid Yet"}}</td>
+
                                         </tr>
                                     @endforeach
                                 @else

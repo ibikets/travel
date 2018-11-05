@@ -24,6 +24,30 @@
     <!-- Animation Css -->
     <link href="/plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Colorpicker Css -->
+    <link href="/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="/plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Multi Select Css -->
+    <link href="/plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- noUISlider Css -->
+    <link href="/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+
+    <!-- Sweet Alert Css -->
+    <link href="/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
     <!-- Morris Chart Css-->
     <link href="/plugins/morrisjs/morris.css" rel="stylesheet" />
 
@@ -85,6 +109,28 @@
     <!-- Slimscroll Plugin Js -->
     <script src="/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+    <!-- Bootstrap Colorpicker Js -->
+    <script src="/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <!-- Dropzone Plugin Js -->
+    <script src="/plugins/dropzone/dropzone.js"></script>
+
+    <!-- Input Mask Plugin Js -->
+    <script src="/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="/plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="/plugins/nouislider/nouislider.js"></script>
+
+
     <!-- Bootstrap Notify Plugin Js -->
     <script src="/plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
@@ -136,6 +182,9 @@
 
     <!-- Custom Js -->
     <script src="/js/admin.js"></script>
+    <script src="/js/pages/forms/advanced-form-elements.js"></script>
+    <script src="/js/pages/forms/basic-form-elements.js"></script>
+    <script src="/js/pages/forms/form-validation.js"></script>
     <script src="/js/pages/forms/form-wizard.js"></script>
     <script src="/js/pages/index.js"></script>
     <script src="/js/pages/tables/jquery-datatable.js"></script>
@@ -143,6 +192,8 @@
 
     <!-- Demo Js -->
     <script src="/js/demo.js"></script>
+
+    @yield('script')
 </body>
 
 </html>
