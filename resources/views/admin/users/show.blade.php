@@ -43,12 +43,22 @@
                             <div class="col-sm-4">
                                 <h3>Personal Data</h3>
                                 <p><b>Full Name: </b>{{$user->name}} </p>
-                                <p><b>Mobile: </b>{{$user->mobile}}</p>
+                                <p><b>Mobile: </b>{{$user->mobile ? $user->mobile : "Not Assigned"}}</p>
                                 <p><b>Email: </b>{{$user->email}} </p>
-                                <p><b>Date Of Birth: </b>{{date('d-M-Y', strtotime($user->dob))}}</p>
-                                <p><b>Gender: </b>{{$user->gender}} </p>
-                                <p><b>Salary: </b>{{$user->salary}}</p>
-                                <p><b>Position: </b>{{$user->position}}</p>
+                                <p><b>Date Of Birth: </b>{{$user->date ? date('d-M-Y', strtotime($user->dob)) : "Not Assigned"}}</p>
+                                <p><b>Gender: </b>{{$user->gender ? $user->gender : "Not Assigned"}} </p>
+                                <p><b>LGA: </b>{{$user->lga ? $user->lga : "Not Assigned"}}</p>
+                                <p><b>State Of Origin: </b>{{$user->state_of_origin ? $user->state_of_origin : "Not Assigned"}}</p>
+                                <p><b></b></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h3>HR Data</h3>
+                                <p><b>Hire Date: </b>{{$user->hire_date ? date('d-M-Y', strtotime($user->hire_date)) : "Not Assigned"}}</p>
+                                <p><b>Confirmation Date: </b>{{$user->confirmation_date ? date('d-M-Y', strtotime($user->confirmation_date)) : "Not Assigned"}}</p>
+                                <p><b>Designation: </b>{{$user->position ? $user->position : "Not Assigned"}} </p>
+                                <p><b>Salary: </b>{{$user->salary ? $user->salary : "Not Assigned"}}</p>
+                                <p><b>Bank: </b>{{$user->bank ? $user->bank : "Not Assigned"}} </p>
+                                <p><b>Account Number: </b>{{$user->account_no ? $user->account_no : "Not Assigned"}} </p>
                                 <p><b></b></p>
                             </div>
 

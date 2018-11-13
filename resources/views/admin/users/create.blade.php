@@ -8,6 +8,7 @@
 
     <div class="container-fluid">
         <div class="block-header">
+            @include('includes.form_msg')
             <h1>Add New Staff</h1>
         </div>
 
@@ -139,10 +140,10 @@
                             <div class="col-sm-4">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                                <i class="material-icons">attach_money</i>
+                                                <i class="material-icons">attach_money</i>Salary
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::text('salary', null, ['class'=>'form-control money-dollar', 'placeholder'=>'Ex: 99,99 $', 'required']) !!}
+                                        {!! Form::number('salary', null, ['class'=>'form-control money-dollar', 'placeholder'=>'Ex: 99,99 *', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +175,7 @@
                                                 <i class="material-icons">attach_money</i>
                                             </span>
                                     <div class="form-line">
-                                        {!! Form::number('account_no', null, ['class'=>'form-control mobile-phone-number', 'placeholder'=>'Account No.:', 'required']) !!}
+                                        {!! Form::number('account_no', null, ['class'=>'form-control', 'placeholder'=>'Account No.:', 'required']) !!}
                                     </div>
                                 </div>
                             </div>

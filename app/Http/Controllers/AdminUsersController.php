@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -45,7 +47,45 @@ class AdminUsersController extends Controller
     {
         //
 
-        dd($request->all());
+        if (trim($request->password) == ''){
+
+            $input = $request->except('password');
+
+        }elseif($request->password == $request->confirm_password){
+
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+
+        }else{
+            Session::flash('del_msg', 'Please ensure your passwords are the same');
+            return redirect()->back();
+        }
+
+
+        if ($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['path'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+
+
+        }
+        $input['name'] = $request->firstname . " " . $request->othername . " " . $request->lastname;
+
+        if ($this->validate($request, ['email'=>'unique:users'])){
+            $user = User::create($input);
+            Session::flash('msg', 'Staff Member ' . $user->name . ' Has Been Added Successfully');
+        }else{
+            Session::flash('del_msg', 'Email ' . $input['email'] . ' already Exist. Please use another Email.');
+        }
+//
+//
+//
+        return redirect('admin/users/index');
     }
 
     /**

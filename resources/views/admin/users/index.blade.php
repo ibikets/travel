@@ -10,6 +10,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
+                        @include('includes.form_msg')
                         STAFF LIST
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -53,7 +54,7 @@
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->mobile}}</td>
                                         <td>{{date('d-M-Y', strtotime($user->dob))}}</td>
-                                        <td>{{$user->gender}}</td>
+                                        <td>{{$user->gender == 'M' ? 'Male' : 'Female'}}</td>
                                         <td>{{$user->state_of_origin}}</td>
 
                                     </tr>
